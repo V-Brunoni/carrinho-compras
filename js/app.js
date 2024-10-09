@@ -8,8 +8,14 @@ function adicionar(){
     let quantidade = document.getElementById('quantidade').value;
     let preco = quantidade * valorProduto;
 
-    if (quantidade == 0) {
-        alert('A quantidade do produto está zerada. Necessário informar uma quantidade maior que zero!');
+    if (!produto || produto.trim() === "") {
+        alert("Selecione um produto válido.");
+        return;
+    }
+    
+    if (quantidade <= 0) {
+        alert('A quantidade do produto é inválida. Necessário informar uma quantidade maior que zero!');
+        document.getElementById('quantidade').value = 0;
         return;
     }
 
